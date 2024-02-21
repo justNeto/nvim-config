@@ -19,3 +19,6 @@ source $XDG_CONFIG_HOME/nvim/obsidian.lua
 
 " LSP/ Snippets
 source $XDG_CONFIG_HOME/nvim/lsp.lua
+
+" Noice
+source $XDG_CONFIG_HOME/nvim/noice.lua
