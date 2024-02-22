@@ -22,3 +22,6 @@ source $XDG_CONFIG_HOME/nvim/lsp.lua
 
 " Noice
 source $XDG_CONFIG_HOME/nvim/noice.lua
+
+" Colorizer
+source $XDG_CONFIG_HOME/nvim/colorizer.lua

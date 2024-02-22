@@ -54,9 +54,6 @@ vim.keymap.set("n", "<leader>c", ":w! | !com <c-r>%<CR>")
 --[[ Open corresponding .pdf/.html or preview ]]
 vim.keymap.set("n", "<leader>o", ":!opout <c-r>%<CR><CR>")
 
---[[ Save file as sudo on files that require root permission ]]
-vim.keymap.set("c", "w!!", "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!")
-
 -- Filesystem operations
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 

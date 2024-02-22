@@ -39,6 +39,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
+" Plug colorizer
+Plug 'NvChad/nvim-colorizer.lua'
+
 " LSP configuration
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
