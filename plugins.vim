@@ -24,7 +24,7 @@ Plug 'kevinhwang91/nvim-ufo'
 Plug 'kevinhwang91/promise-async'
 Plug 'ThePrimeagen/harpoon'
 Plug 'folke/zen-mode.nvim'
-Plug 'epwalsh/obsidian.nvim'
+" Plug 'epwalsh/obsidian.nvim'
 
 " Status line prettifier
 Plug 'vim-airline/vim-airline'
@@ -63,4 +63,5 @@ Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'folke/noice.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
+"
 call plug#end()
