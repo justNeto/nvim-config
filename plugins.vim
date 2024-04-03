@@ -63,5 +63,8 @@ Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'folke/noice.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
-"
+
+" ANTLR
+Plug 'dylon/vim-antlr'
+
 call plug#end()
