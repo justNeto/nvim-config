@@ -60,11 +60,13 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 
-Plug 'folke/noice.nvim'
+" Plug 'folke/noice.nvim'
 Plug 'MunifTanjim/nui.nvim'
-Plug 'rcarriga/nvim-notify'
 
 " ANTLR
 Plug 'dylon/vim-antlr'
+
+" Jupyter notebook development
+Plug 'kiyoon/jupynium.nvim'
 
 call plug#end()

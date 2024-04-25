@@ -61,6 +61,7 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
+local compare = cmp.config.compare
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -73,8 +74,10 @@ cmp.setup({
 	},
 	sources = {
 		-- Here you can add your sources for cmp engine. Remember to install the appropriate plugin per language
+		--
+		{ name = "jupynium", priority = 1000 },  -- consider higher priority than LSP
 		{ name = 'luasnip' },
-		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lsp', priority = 100},
 		{ name = 'path' }
 	},
 	mapping = cmp.mapping.preset.insert({
