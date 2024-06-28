@@ -24,7 +24,6 @@ Plug 'kevinhwang91/nvim-ufo'
 Plug 'kevinhwang91/promise-async'
 Plug 'ThePrimeagen/harpoon'
 Plug 'folke/zen-mode.nvim'
-" Plug 'epwalsh/obsidian.nvim'
 
 " Status line prettifier
 Plug 'vim-airline/vim-airline'
