@@ -33,7 +33,7 @@ return {
             vim.o.foldenable = true
         end,
         config = function(_, opts)
-            local handler = function(virtText, lnum, endLnum, width, truncate)
+            local ufo_handler = function(virtText, lnum, endLnum, width, truncate)
                 local newVirtText = {}
                 local totalLines = vim.api.nvim_buf_line_count(0)
                 local foldedLines = endLnum - lnum
@@ -64,7 +64,7 @@ return {
                 table.insert(newVirtText, { suffix, "MoreMsg" })
                 return newVirtText
             end
-            opts["fold_virt_text_handler"] = handler
+            opts["fold_virt_text_handler"] = ufo_handler
             require("ufo").setup(opts)
             vim.keymap.set("n", "zR", require("ufo").openAllFolds)
             vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

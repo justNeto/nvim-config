@@ -25,7 +25,7 @@ vim.cmd([[set nohlsearch]])
 opt.termguicolors	= true
 opt.background		= "dark"
 opt.signcolumn		= "yes"
---opt.cursorline      = true
+-- opt.cursorline      = true
 
 -- Spliting windows
 opt.splitright = true
@@ -39,9 +39,6 @@ vim.o.completeopt = "menu,menuone,noselect"
 -- Disable netrw by default
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
 
 -- Filetype settings and others
 vim.cmd([[autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff]])

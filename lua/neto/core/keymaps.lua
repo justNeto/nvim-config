@@ -1,15 +1,18 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 local keymap = vim.keymap
 
 -- Set file navigation shortcuts for fuzzy finding and tree
-keymap.set("n", "<leader>ff", ":FzfLua files<Enter>")
-keymap.set("n", "<leader><space>", ":FzfLua live_grep<Enter>")
-keymap.set("n", "<leader>sg", ":FzfLua git_files<Enter>")
-keymap.set("n", "<leader>sb", ":FzfLua buffers<Enter>")
-keymap.set("n", "<leader>sm", ":FzfLua marks<Enter>")
+keymap.set("n", "<leader>ff", "<cmd>:FzfLua files<cr>")
+keymap.set("n", "<leader><space>", "<cmd>:FzfLua live_grep<cr>")
+keymap.set("n", "<leader>sg", "<cmd>FzfLua git_files<cr>")
+keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>")
+keymap.set("n", "<leader>sm", "<cmd>FzfLua marks<cr>")
 
 -- File and tree viewers
-keymap.set("n", "<leader>e", ":NvimTreeToggle<Enter>")
-keymap.set("n", "<leader>,", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+keymap.set("n", "<leader>,", "<cmd>Oil<cr>")
 
 -- Appending to current line the next line
 keymap.set("n", "J", "mzJ`z")
@@ -30,13 +33,13 @@ keymap.set("n", "c", "\"_c")
 --keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- Shortcutting split navigation, saving a keypress:
-keymap.set("n", "<leader>h", "<C-w>h")
-keymap.set("n", "<leader>j", "<C-w>j")
-keymap.set("n", "<leader>l", "<C-w>l")
-keymap.set("n", "<leader>k", "<C-w>k")
+keymap.set("n", "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>")
+keymap.set("n", "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>")
+keymap.set("n", "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>")
+keymap.set("n", "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>")
 
-keymap.set("n", "<leader>hs","<cmd>split<cr>")
-keymap.set("n", "<leader>vs","<cmd>vsplit<cr>")
+keymap.set("n", "<leader>sh","<cmd>split<cr>")
+keymap.set("n", "<leader>sv","<cmd>vsplit<cr>")
 
 keymap.set("x", "<leader>p", "\"_dP") -- copying and pasting without overwriting vim yank buffer
 keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- yanking or deleting to system's clipboard
