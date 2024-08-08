@@ -1,2 +1,2 @@
-require("neto.core")
 require("neto.lazy")
+require("neto.core")

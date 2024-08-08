@@ -19,7 +19,8 @@ opt.backspace   = "indent,eol,start"
 -- Search settings
 opt.ignorecase	= true
 opt.smartcase	= true
-vim.cmd([[set nohlsearch]])
+opt.hlsearch	= false
+opt.incsearch   = true
 
 -- Color settings
 opt.termguicolors	= true

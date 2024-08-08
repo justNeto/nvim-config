@@ -9,6 +9,7 @@ return {
     { 'tpope/vim-fugitive' },
     { 'tpope/vim-rhubarb' },
     { 'airblade/vim-gitgutter' },
+    { 'nvim-pack/nvim-spectre'},
     {
         'NvChad/nvim-colorizer.lua',
         config = function()
