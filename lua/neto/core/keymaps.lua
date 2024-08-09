@@ -1,11 +1,16 @@
 local keymap = vim.keymap
 
 -- Set file navigation shortcuts for fuzzy finding and tree
-keymap.set("n", "<leader>ff", "<cmd>:FzfLua files<cr>")
-keymap.set("n", "<leader><space>", "<cmd>:FzfLua live_grep<cr>")
+keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>")
+keymap.set("n", "<leader><space>", "<cmd>FzfLua live_grep<cr>")
 keymap.set("n", "<leader>sg", "<cmd>FzfLua git_files<cr>")
 keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>")
 keymap.set("n", "<leader>sm", "<cmd>FzfLua marks<cr>")
+keymap.set("n", "<leader>to", "<cmd>lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX', no_esc=true})<cr>")
+
+-- Todo comments
+keymap.set("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>")
+keymap.set("n", "[t", "<cmd>lua require('todo-comments').jump_prev()<cr>")
 
 -- File and tree viewers
 keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
@@ -50,6 +55,9 @@ keymap.set("n", "<leader>nf", "<cmd>silent !tmux neww tmux-sessionizer <cr>")
 
 -- Replace all matches using capital S in current word in normal mode
 keymap.set("n", "S", ":%s//g<Left><Left>")
+
+-- Set undotree keymap
+keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
 
 -- Spectre files
 keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })

@@ -2,7 +2,6 @@ return {
     "nvim-lua/plenary.nvim",
     "christoomey/vim-tmux-navigator",
     'nvim-tree/nvim-web-devicons',
-    {'numToStr/Comment.nvim', opts = { }},
     { 'mbbill/undotree' },
     { 'folke/zen-mode.nvim' },
     { 'https://github.com/google/vim-searchindex.git' },
@@ -30,4 +29,10 @@ return {
             require("ibl").setup()
         end
     },
+    {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        dependenciens = {
+            'nvim-treesitter/nvim-treesitter'
+        }
+    }
 }

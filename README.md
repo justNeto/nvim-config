@@ -1,5 +1,1 @@
-# Welcome to my justNeto's neovim configuration!
-
-## TODO:
-
-Add lsp
+# Welcome to justNeto's neovim configuration!
