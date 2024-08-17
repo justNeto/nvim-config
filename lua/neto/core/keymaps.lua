@@ -1,12 +1,14 @@
 local keymap = vim.keymap
 
 -- Set file navigation shortcuts for fuzzy finding and tree
-keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>")
-keymap.set("n", "<leader><space>", "<cmd>FzfLua live_grep<cr>")
-keymap.set("n", "<leader>sg", "<cmd>FzfLua git_files<cr>")
-keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>")
+keymap.set("n", "<leader>sf", "<cmd>FzfLua files<cr>")
 keymap.set("n", "<leader>sm", "<cmd>FzfLua marks<cr>")
-keymap.set("n", "<leader>to", "<cmd>lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX', no_esc=true})<cr>")
+keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>")
+keymap.set("n", "<leader>sg", "<cmd>FzfLua git_files<cr>")
+keymap.set("n", "<leader>sr", "<cmd>FzfLua registers<cr>")
+keymap.set("n", "<leader>sw", "<cmd>FzfLua grep_cword<cr>")
+keymap.set("n", "<leader><space>", "<cmd>FzfLua live_grep<cr>")
+keymap.set("n", "<leader>st", "<cmd>lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX', no_esc=true})<cr>")
 
 -- Todo comments
 keymap.set("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>")
@@ -61,6 +63,6 @@ keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
 
 -- Spectre files
 keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
-keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
-keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
+keymap.set('n', '<leader>scw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
+keymap.set('v', '<leader>scw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
 keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>')
