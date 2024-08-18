@@ -19,6 +19,7 @@ return {
             })
 
             lsp_config.setup{
+                -- TODO: install the below lsp's on nix
                 ensure_installed =
                 {
                     -- "lua_ls",

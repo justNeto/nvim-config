@@ -10,6 +10,13 @@ return {
     { 'airblade/vim-gitgutter' },
     { 'nvim-pack/nvim-spectre'},
     {
+        'echasnovski/mini.align',
+        version = false,
+        opts = {
+
+        }
+    },
+    {
         'NvChad/nvim-colorizer.lua',
         config = function()
             require 'colorizer'.setup()

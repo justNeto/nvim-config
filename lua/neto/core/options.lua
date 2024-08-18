@@ -1,47 +1,59 @@
 -- These are my nvim settings
 
-local opt		= vim.opt
-local tabwidth 	= 4
+local opt                = vim.opt
+local tabwidth           = 4
 
---
-opt.relativenumber 	= true
-opt.number			= true
+-- General settings
+opt.relativenumber       = true
+opt.number               = true
 
-opt.tabstop 	= tabwidth
-opt.shiftwidth 	= tabwidth
-opt.softtabstop = tabwidth
-
-opt.expandtab 	= true
-opt.autoindent 	= true
-opt.wrap		= false
-opt.backspace   = "indent,eol,start"
+-- Shift and tab settings
+opt.tabstop              = tabwidth
+opt.shiftwidth           = tabwidth
+opt.softtabstop          = tabwidth
+opt.expandtab            = true
+opt.autoindent           = true
+opt.smartindent          = true
+opt.wrap                 = false
+opt.backspace            = "indent,eol,start"
 
 -- Search settings
-opt.ignorecase	= true
-opt.smartcase	= true
-opt.hlsearch	= false
-opt.incsearch   = true
+opt.ignorecase           = true
+opt.smartcase            = true
+opt.hlsearch             = false
+opt.incsearch            = true
 
 -- Color settings
-opt.termguicolors	= true
-opt.background		= "dark"
-opt.signcolumn		= "yes"
--- opt.cursorline      = true
+opt.termguicolors        = true
+opt.background           = "dark"
+opt.signcolumn           = "yes"
+-- opt.cursorline        = true
 
 -- Spliting windows
-opt.splitright = true
-opt.splitbelow = true
+opt.splitright           = true
+opt.splitbelow           = true
 
 -- Wildmode settings
-vim.o.wildmode = "longest,list,full"
-vim.o.wildignorecase = true
-vim.o.completeopt = "menu,menuone,noselect"
+vim.o.wildmode           = "longest,list,full"
+vim.o.wildignorecase     = true
+vim.o.completeopt        = "menu,menuone,noselect"
 
 -- Disable netrw by default
-vim.g.loaded_netrw = 1
+vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Filetype settings and others
+-- Some automatic indentation for specific filetypes
+vim.cmd([[
+    augroup FiletypeSettings
+        autocmd!
+        autocmd FileType python setlocal shiftwidth=4 tabstop=4 expandtab
+        autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
+        autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
+        autocmd FileType lua setlocal shiftwidth=4 tabstop=4 expandtab
+    augroup END
+]])
+
+-- Setting more filetypes
 vim.cmd([[autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff]])
 vim.cmd([[autocmd BufRead,BufNewFile *.rmd,*.qmd set filetype=markdown]])
 vim.cmd([[autocmd BufRead,BufNewFile *.launch set filetype=xml]])
