@@ -10,7 +10,7 @@ return {
               return { "treesitter", "indent" }
             end,
             open_fold_hl_timeout = 400,
-            close_fold_kinds_for_ft = { "imports", "comment" },
+            -- close_fold_kinds_for_ft = { "imports", "comment" },
             preview = {
                 win_config = {
                     border = { "", "─", "", "", "", "─", "", "" },
@@ -78,13 +78,13 @@ return {
             end)
         end,
     },
-    -- Folding preview, by default h and l keys are used.
-    -- On first press of h key, when cursor is on a closed fold, the preview will be shown.
-    -- On second press the preview will be closed and fold will be opened.
-    -- When preview is opened, the l key will close it and open fold. In all other cases these keys will work as usual.
-    {
-        "anuvyklack/fold-preview.nvim",
-        dependencies = "anuvyklack/keymap-amend.nvim",
-        config = true
-    },
+    -- -- Folding preview, by default h and l keys are used.
+    -- -- On first press of h key, when cursor is on a closed fold, the preview will be shown.
+    -- -- On second press the preview will be closed and fold will be opened.
+    -- -- When preview is opened, the l key will close it and open fold. In all other cases these keys will work as usual.
+    -- {
+    --     "anuvyklack/fold-preview.nvim",
+    --     dependencies = "anuvyklack/keymap-amend.nvim",
+    --     config = true
+    -- },
 }
