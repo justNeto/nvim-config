@@ -33,8 +33,8 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "c", "\"_c")
 
 -- Shortcutting split navigation, saving a keypress:
-keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
-keymap.set("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>")
+keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
 keymap.set("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>")
 keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
 
@@ -42,6 +42,7 @@ keymap.set("n", "<leader>sv","<C-w>v")
 keymap.set("n", "<leader>sh","<C-w>s")
 keymap.set("n", "<leader>se","<C-w>=")
 keymap.set("n", "<leader>sx","<cmd>close<cr>")
+keymap.set("n", "<leader>w","<C-w>")
 
 keymap.set("n", "<leader>nd","<cmd>NoiceDismiss<cr>")
 
