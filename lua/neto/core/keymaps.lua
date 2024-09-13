@@ -8,7 +8,7 @@ keymap.set("n", "<leader>sg", "<cmd>FzfLua git_files<cr>")
 keymap.set("n", "<leader>sr", "<cmd>FzfLua registers<cr>")
 keymap.set("n", "<leader>sw", "<cmd>FzfLua grep_cword<cr>")
 keymap.set("n", "<leader><space>", "<cmd>FzfLua live_grep<cr>")
-keymap.set("n", "<leader>st", "<cmd>lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX', no_esc=true})<cr>")
+keymap.set("n", "<leader>st", "<cmd>TodoFzfLua<cr>")
 
 -- Todo comments
 keymap.set("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>")

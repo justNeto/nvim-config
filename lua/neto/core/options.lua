@@ -32,6 +32,7 @@ opt.incsearch            = true
 -- Color settings
 opt.termguicolors        = true
 opt.background           = "dark"
+
 opt.signcolumn           = "yes"
 -- opt.cursorline        = true
 
