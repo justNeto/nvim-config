@@ -1,13 +1,13 @@
 return
 {
-	-- {
-	-- 	'fcpg/vim-fahrenheit',
-	-- 	lazy 		= false,
-	-- 	priority 	= 1000,
-	-- 	config 		= function()
-	-- 		vim.cmd([[colorscheme fahrenheit]])
-	-- 	end,
-	-- },
+	{
+		'fcpg/vim-fahrenheit',
+		lazy 		= false,
+		priority 	= 1000,
+		config 		= function()
+			vim.cmd([[colorscheme fahrenheit]])
+		end,
+	},
 	-- {
  --        "savq/melange-nvim",
 	-- 	lazy 		= false,
@@ -17,14 +17,14 @@ return
  --        end
 	-- },
     -- INFO: LOOKS GOOD!
-	{
-        "Love-Pengy/lillilac.nvim",
-		lazy 		= false,
-		priority 	= 1000,
-        config      = function()
-            vim.cmd([[colorscheme lillilac]])
-        end
-    },
+	-- {
+ --        "Love-Pengy/lillilac.nvim",
+	-- 	lazy 		= false,
+	-- 	priority 	= 1000,
+ --        config      = function()
+ --            vim.cmd([[colorscheme lillilac]])
+ --        end
+ --    },
     -- TEST: TRY
 	-- {
  --        "bartekprtc/distinct.nvim",
@@ -34,7 +34,4 @@ return
  --            vim.cmd([[colorscheme distinct]])
  --        end
 	-- },
-    {
-        "xiyaowong/transparent.nvim"
-    }
 }
