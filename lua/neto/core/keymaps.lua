@@ -57,7 +57,7 @@ keymap.set("n", "Q", "<nop>")
 keymap.set("n", "<leader>nf", "<cmd>silent !tmux neww tmux-sessionizer <cr>")
 
 -- Replace all matches using capital S in current word in normal mode
-keymap.set("n", "S", ":%s//g<Left><Left>")
+-- keymap.set("n", "S", ":%s//g<Left><Left>")
 
 -- Set undotree keymap
 keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
