@@ -12,7 +12,7 @@ return {
                     multi_line = false,
                 },
                 search = {
-                    enabled = true
+                    enabled = false
                 },
                 remote_op = {
                     restore = true,
