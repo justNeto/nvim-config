@@ -46,24 +46,22 @@ keymap.set("n", "<leader>w","<C-w>")
 
 keymap.set("n", "<leader>nd","<cmd>NoiceDismiss<cr>")
 
-keymap.set("x", "<leader>p", "\"_dP") -- copying and pasting without overwriting vim yank buffer
-keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- yanking or deleting to system's clipboard
+keymap.set("x", "<leader>p", "\"_dP") -- pasting without overwriting vim clipboard
+keymap.set("n", "<leader>P", [["+p"]]) -- pasting from system's clipboard
 keymap.set({ "n", "v" }, "<leader>d", [["_d]]) -- delete without sending to vim clipboard
+keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- yanking or deleting to system's clipboard
 
 -- Replace ex mode with gq... but actually no lol
 keymap.set("n", "Q", "<nop>")
 
 -- Change into a different project using tmux
-keymap.set("n", "<leader>nf", "<cmd>silent !tmux neww tmux-sessionizer <cr>")
-
--- Replace all matches using capital S in current word in normal mode
--- keymap.set("n", "S", ":%s//g<Left><Left>")
+--SS keymap.set("n", "<leader>nf", "<cmd>silent !tmux neww tmux-sessionizer <cr>")SS
 
 -- Set undotree keymap
 keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
 
 -- Spectre files
-keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
+keymap.set('n', '<leader>ss', '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
 keymap.set('n', '<leader>scw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
 keymap.set('v', '<leader>scw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
 keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>')
