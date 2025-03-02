@@ -32,6 +32,10 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 -- Remap some other stuff
 keymap.set("n", "c", "\"_c")
 
+-- Add centering after search
+keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
+keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
+
 -- Shortcutting split navigation, saving a keypress:
 keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
 keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
