@@ -42,6 +42,8 @@ return {
                     "eslint_d",
                     "jq",
                     "json-lsp",
+                    "isort",
+                    "black"
                 }
             })
         end
