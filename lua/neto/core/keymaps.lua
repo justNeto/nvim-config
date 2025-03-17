@@ -67,7 +67,9 @@ keymap.set("n", "Q", "<nop>")
 keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
 
 -- Spectre files
-keymap.set('n', '<leader>ts', '<cmd>lua require("spectre").toggle()<CR>')
-keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>')
-keymap.set('v', '<leader>scw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
-keymap.set('n', '<leader>scw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
+
+keymap.set('n', '<leader>tb', '<cmd>lua require("spectre").open_file_search()<CR>', { desc =  'Search in current buffer; no word selected'})
+keymap.set('n', '<leader>scb', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search current word in current buffer" })
+
+keymap.set('n', '<leader>ts', '<cmd>lua require("spectre").toggle()<CR>', { desc = 'Search in all buffers: no word selected'})
+keymap.set('n', '<leader>scw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word in all buffer" })
