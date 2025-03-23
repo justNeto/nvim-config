@@ -50,8 +50,8 @@ return {
 				-- Set to `false` to remove a keymap
 				-- See :help oil-actions for a list of all available actions
 				keymaps = {
-					["g?"] = "actions.show_help",
-					["<CR>"] = "actions.select",
+					-- ["g?"] = "actions.show_help",
+					-- ["<CR>"] = "actions.select",
 					-- ["<C-s>"] = "actions.select_vsplit",
 					-- ["<C-h>"] = "actions.select_split",
 					-- ["<C-t>"] = "actions.select_tab",
@@ -68,7 +68,7 @@ return {
 					-- ["g\\"] = "actions.toggle_trash",
 				},
 				-- Set to false to disable all of the above keymaps
-				use_default_keymaps = true,
+				use_default_keymaps = false,
 				view_options = {
 					-- Show files and directories that start with "."
 					show_hidden = true,

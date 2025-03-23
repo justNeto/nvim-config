@@ -16,7 +16,6 @@ keymap.set("n", "[t", "<cmd>lua require('todo-comments').jump_prev()<cr>")
 
 -- File and tree viewers
 keymap.set("n", "<leader>,", "<cmd>Oil<cr>")
-keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
 -- Appending to current line the next line
 keymap.set("n", "J", "mzJ`z")
