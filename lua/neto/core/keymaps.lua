@@ -10,8 +10,8 @@ keymap.set("n", "<leader>sr", "<cmd>FzfLua registers<cr>")
 keymap.set("n", "<leader>sw", "<cmd>FzfLua grep_cword<cr>")
 keymap.set("n", "<leader><space>", "<cmd>FzfLua live_grep<cr>")
 
-keymap.set("n", "<leader>ecd", "lua local current_dir = vim.fn.getcwd(); FzfLua.live_grep({ cwd = current_dir })<cr>")
-keymap.set("n", "<leader>ed", "lua FzfLua.live_grep({ cwd = ''})<left><left><left>")
+keymap.set("n", "<leader>ecd", ":lua local current_dir = vim.fn.getcwd(); FzfLua.live_grep({ cwd = current_dir })<cr>")
+keymap.set("n", "<leader>ed", ":lua FzfLua.live_grep({ cwd = ''})<left><left><left>")
 
 -- Todo comments
 keymap.set("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>")
