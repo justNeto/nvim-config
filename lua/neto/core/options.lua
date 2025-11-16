@@ -65,10 +65,10 @@ vim.cmd([[
 
 -- Setting more filetypes
 vim.cmd([[autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff]])
-vim.cmd([[autocmd BufRead,BufNewFile *.rmd,*.qmd set filetype=markdown]])
+vim.cmd([[autocmd BufRead,BufNewFile *.rmd,*.qmd set filetype=markdown | set conceallevel=2]])
 vim.cmd([[autocmd BufRead,BufNewFile *.launch set filetype=xml]])
 vim.cmd([[autocmd BufRead,BufNewFile *.tex set filetype=tex]])
-vim.cmd([[autocmd BufRead,BufNewFile *.md,*.rmd,*.qmd,*.Rmd,*.Qmd set conceallevel=0]])
+vim.cmd([[autocmd BufRead,BufNewFile *.md,*.rmd,*.qmd,*.Rmd,*.Qmd set conceallevel=2]])
 vim.cmd([[autocmd BufRead,BufNewFile *.json* set conceallevel=0]])
 
 -- Automatically deletes all trailing whitespace and newlines at end of file on save.

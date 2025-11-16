@@ -12,15 +12,6 @@ return {
     {
         'echasnovski/mini.align',
         version = false,
-        opts = {
-
-        }
-    },
-    {
-        'NvChad/nvim-colorizer.lua',
-        config = function()
-            require 'colorizer'.setup()
-        end
     },
     {
         'dstein64/vim-startuptime',
