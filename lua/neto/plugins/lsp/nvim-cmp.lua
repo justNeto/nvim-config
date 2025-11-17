@@ -10,12 +10,7 @@ return {
         'hrsh7th/nvim-cmp',
         'saadparwaiz1/cmp_luasnip',
         'rafamadriz/friendly-snippets',
-        'onsails/lspkind.nvim',
-        {
-            'L3MON4D3/LuaSnip',
-            version = "v2.*",
-            build = "make install_jsregexp"
-        }
+        'onsails/lspkind.nvim'
     },
     config = function()
         local cmp = require("cmp")

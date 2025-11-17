@@ -22,7 +22,9 @@ require("lazy").setup({
     spec = {
         -- import your plugins
         { import = "neto.plugins" },
+        { import = "neto.plugins.dev" },
         { import = "neto.plugins.lsp" },
+        { import = "neto.plugins.qol" },
     },
 
     -- Configure any other settings here. See the documentation for more details.

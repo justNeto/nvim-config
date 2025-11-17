@@ -3,7 +3,6 @@ return {
     "christoomey/vim-tmux-navigator",
     'nvim-tree/nvim-web-devicons',
     { 'mbbill/undotree' },
-    { 'folke/zen-mode.nvim' },
     { 'https://github.com/google/vim-searchindex.git' },
     { 'tpope/vim-fugitive' },
     { 'tpope/vim-rhubarb' },
@@ -14,13 +13,6 @@ return {
         version = false,
     },
     {
-        'dstein64/vim-startuptime',
-        cmd = "StartupTime",
-        init = function()
-            vim.g.startuptime_tries = 10
-        end,
-    },
-    {
         'lukas-reineke/indent-blankline.nvim',
         main = "ibl",
         config = function()
@@ -28,9 +20,11 @@ return {
         end
     },
     {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        dependenciens = {
-            'nvim-treesitter/nvim-treesitter'
-        }
+        "Wansmer/treesj",
+        keys = {"<leader>m"},
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("treesj").setup({})
+        end
     }
 }
