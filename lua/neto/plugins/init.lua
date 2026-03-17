@@ -1,24 +1,9 @@
 return {
-    "nvim-lua/plenary.nvim",
-    "christoomey/vim-tmux-navigator",
-    'nvim-tree/nvim-web-devicons',
-    { 'mbbill/undotree' },
-    { 'https://github.com/google/vim-searchindex.git' },
-    { 'tpope/vim-fugitive' },
-    { 'tpope/vim-rhubarb' },
-    { 'airblade/vim-gitgutter' },
+    { 'tpope/vim-fugitive' }, -- remove
+    { 'tpope/vim-rhubarb' }, -- remove
+    { 'airblade/vim-gitgutter' }, -- TODO: review if will use
     { 'nvim-pack/nvim-spectre'},
-    {
-        'echasnovski/mini.align',
-        version = false,
-    },
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        main = "ibl",
-        config = function()
-            require("ibl").setup()
-        end
-    },
+    { 'echasnovski/mini.align', version = false, }, -- review if needed
     {
         "Wansmer/treesj",
         keys = {"<leader>m"},
