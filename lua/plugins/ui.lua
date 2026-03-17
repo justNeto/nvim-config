@@ -1,18 +1,26 @@
 -- plugins
 vim.pack.add({
     { src = "https://github.com/L3MON4D3/LuaSnip" },
+    { src = "https://github.com/folke/noice.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
     { src = "https://github.com/abecodes/tabout.nvim" },
+    { src = "https://github.com/MunifTanjim/nui.nvim" },
+    { src = "https://github.com/rcarriga/nvim-notify" },
+    { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/kylechui/nvim-surround" },
+    { src = "https://github.com/nvim-lualine/lualine.nvim" },
+    { src = "https://github.com/catgoose/nvim-colorizer.lua" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
 -- TODO: resarch mini.nvim such as sorround and align
-
 -- Add whatever specific config/setup for some plugin e.g.
 -- require('plugin').setup({})
-require('nvim-surround').setup()
-require('tabout').setup({
+require("colorizer").setup()
+require("render-markdown").setup()
+require("nvim-surround").setup()
+require("tabout").setup({
     tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
     backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
     act_as_tab = true, -- shift content if tab out is not possible
@@ -169,4 +177,61 @@ require("oil").setup({
             winblend = 0,
         },
     },
+})
+require('lualine').setup({
+    options = {
+        icons_enabled = true,
+        theme = 'gruvbox_dark',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        globalstatus = false,
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+        }
+    },
+    sections = {
+        lualine_a = {
+            'mode',
+            {
+                require("noice").api.status.message.get_hl,
+                cond = require("noice").api.status.message.has,
+            },
+        },
+        lualine_b = {
+            {
+                'branch',
+                'diff',
+                'diagnostics'
+            },
+            {
+                require("noice").api.statusline.mode.get,
+                cond = require("noice").api.statusline.mode.has,
+                color = { fg = "#ff9e64" },
+            }
+        },
+        lualine_c = {'filename', 'selectioncount', 'progress'},
+        lualine_x = {'filetype', 'filesize', 'fileformat'},
+        lualine_y = {'hostname'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {'nvim-tree', 'fugitive', 'oil'}
 })

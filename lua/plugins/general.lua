@@ -16,6 +16,9 @@ vim.pack.add({
 -- Add whatever specific config/setup for some plugin e.g.
 -- require('plugin').setup({})
 
+-- Other plugins
+-- vigoux/oak
+-- rose-pine/neovim
 vim.cmd("colorscheme fahrenheit")
 require("ibl").setup() -- indent blanklike startup callout
 require("treesj").setup() -- indent blanklike startup callout
