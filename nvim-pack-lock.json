@@ -11,7 +11,7 @@
     "blink.cmp": {
       "rev": "612f4bd2bc29d9e7dc7be1dde960908951bedad1",
       "src": "https://github.com/Saghen/blink.cmp",
-      "version": ">=0.0.0"
+      "version": "'v1.10.1'"
     },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
