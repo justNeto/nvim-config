@@ -24,7 +24,6 @@ vim.lsp.config("lua_ls", {
 			diagnostics = {
 				globals = {
 					"vim",
-					"require",
 				},
 			},
 			workspace = {
@@ -56,6 +55,9 @@ require("blink.cmp").setup({
 				preselect = false,
 				auto_insert = false,
 			},
+		},
+		trigger = {
+			show_on_keyword = true,
 		},
 	},
 	sources = {
