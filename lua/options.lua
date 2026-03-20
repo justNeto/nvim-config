@@ -1,21 +1,21 @@
 -- Options files for lua
-local opt                = vim.opt
-local tabwidth           = 4
+local opt = vim.opt
+local tabwidth = 4
 
 -- General settings
-opt.relativenumber       = true
-opt.number               = true
-vim.o.scrolloff          = 8
+opt.relativenumber = true
+opt.number = true
+vim.o.scrolloff = 8
 
 -- Shift and tab settings
-opt.tabstop              = tabwidth
-opt.shiftwidth           = tabwidth
-opt.softtabstop          = tabwidth
-opt.expandtab            = true
-opt.autoindent           = true
-opt.smartindent          = true
-opt.wrap                 = false
-opt.backspace            = "indent,eol,start"
+opt.tabstop = tabwidth
+opt.shiftwidth = tabwidth
+opt.softtabstop = tabwidth
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
+opt.wrap = false
+opt.backspace = "indent,eol,start"
 
 -- Fold settings
 vim.o.foldenable = true
@@ -28,26 +28,26 @@ vim.opt.foldcolumn = "0"
 -- vim.opt.fillchars:append({fold = " "})
 
 -- Search settings
-opt.ignorecase           = true
-opt.smartcase            = true
-opt.hlsearch             = false
-opt.incsearch            = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = false
+opt.incsearch = true
 
 -- Color settings
-opt.termguicolors        = true
-opt.background           = "dark"
+opt.termguicolors = true
+opt.background = "dark"
 
-opt.signcolumn           = "yes"
-opt.cursorline           = true
+opt.signcolumn = "yes"
+opt.cursorline = true
 
 -- Spliting windows
-opt.splitright           = true
-opt.splitbelow           = true
+opt.splitright = true
+opt.splitbelow = true
 
 -- Wildmode settings
-vim.o.wildmode           = "longest,list,full"
-vim.o.wildignorecase     = true
-vim.o.completeopt        = "menu,menuone,noselect"
+vim.o.wildmode = "longest,list,full"
+vim.o.wildignorecase = true
+-- vim.o.completeopt        = "menu,menuone,noselect"
 
 -- LSP defaults
 vim.diagnostic.config({ virtual_text = true })

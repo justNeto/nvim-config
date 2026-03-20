@@ -1,6 +1,5 @@
 -- plugins
 vim.pack.add({
-	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/folke/flash.nvim" },
 	{ src = "https://github.com/numToStr/Comment.nvim" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -8,12 +7,44 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 	{ src = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring" },
+	{
+		src = "https://github.com/ThePrimeagen/harpoon",
+		version = "harpoon2",
+	},
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
 -- Add whatever specific config/setup for some plugin e.g.
 -- require('plugin').setup({
 --     ...
 -- })
+-- local harpoon = require("harpoon")
+-- local keymap = vim.keymap
+--
+-- harpoon:setup({
+-- 	settings = {
+-- 		save_on_toggle = true,
+-- 	},
+-- })
+--
+-- keymap.set("n", "<leader>a", function()
+-- 	harpoon:list():add()
+-- end)
+-- keymap.set("n", "<C-e>", function()
+-- 	harpoon.ui:toggle_quick_menu(harpoon:list())
+-- end)
+-- keymap.set("n", "<leader>hh", function()
+-- 	harpoon:list():select(1)
+-- end)
+-- keymap.set("n", "<leader>tt", function()
+-- 	harpoon:list():select(2)
+-- end)
+-- keymap.set("n", "<leader>nn", function()
+-- 	harpoon:list():select(3)
+-- end)
+-- keymap.set("n", "<leader>ss", function()
+-- 	harpoon:list():select(4)
+-- end)
 
 require("todo-comments").setup()
 require("fzf-lua").setup({ "fzf-native" })
@@ -84,14 +115,14 @@ require("conform").setup({
 	},
 })
 
-vim.keymap.set({ "n", "v" }, "<leader>fc", function()
+vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 	require("conform").format({
 		lsp_fallback = true,
 		async = false,
 		timeout_ms = 1000,
 	})
 end)
-vim.keymap.set({ "n", "v" }, "<leader>fm", "<cmd>lua vim.lsp.buf.format()<cr>")
+vim.keymap.set({ "n", "v" }, "<leader>cm", "<cmd>lua vim.lsp.buf.format()<cr>")
 
 require("nvim-treesitter").setup({
 	-- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
