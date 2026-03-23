@@ -1,5 +1,8 @@
 local keymap = vim.keymap
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- Set file navigation shortcuts for fuzzy finding and tree
 keymap.set("n", "<leader>st", "<cmd>TodoFzfLua<cr>")
 keymap.set("n", "<leader>sf", "<cmd>FzfLua files<cr>")
