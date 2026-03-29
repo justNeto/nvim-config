@@ -12,7 +12,7 @@ vim.pack.add({
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
-	ensure_installed = { "lua_ls", "ts_ls", "stylua", "clangd", "eslint_d", "isort" },
+	ensure_installed = { "lua_ls", "ts_ls", "stylua", "clangd", "eslint_d", "isort", "gopls" },
 })
 
 vim.lsp.config("lua_ls", {

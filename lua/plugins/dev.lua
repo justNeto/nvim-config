@@ -19,9 +19,15 @@ vim.pack.add({
 -- require('plugin').setup({
 --     ...
 -- })
-local harpoon = require("harpoon")
 require("todo-comments").setup()
 require("fzf-lua").setup({ "fzf-native" })
+require("harpoon").setup({
+    global_settings = {
+        save_on_toggle = true,
+        save_on_change = true,
+        tabline = true
+    }
+})
 
 local ts_context = require("ts_context_commentstring.integrations.comment_nvim")
 require("Comment").setup({
@@ -81,6 +87,7 @@ require("conform").setup({
 		liquid = { "prettier" },
 		lua = { "stylua" },
 		python = { "isort" },
+		go = { "golangci-lint" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
@@ -88,15 +95,6 @@ require("conform").setup({
 		timeout_ms = 1000,
 	},
 })
-
-vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-	require("conform").format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 1000,
-	})
-end)
-vim.keymap.set({ "n", "v" }, "<leader>cm", "<cmd>lua vim.lsp.buf.format()<cr>")
 
 require("nvim-treesitter").setup({
 	-- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)

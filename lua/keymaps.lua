@@ -23,6 +23,16 @@ keymap.set("n", "[t", "<cmd>lua require('todo-comments').jump_prev()<cr>")
 -- File and tree viewers
 keymap.set("n", "<leader>,", "<cmd>Oil<cr>")
 
+-- Conform
+vim.keymap.set({ "n", "v" }, "<leader>cf", function()
+	require("conform").format({
+		lsp_fallback = true,
+		async = false,
+		timeout_ms = 1000,
+	})
+end)
+vim.keymap.set({ "n", "v" }, "<leader>cm", "<cmd>lua vim.lsp.buf.format()<cr>")
+
 -- Appending to current line the next line
 keymap.set("n", "J", "mzJ`z")
 
