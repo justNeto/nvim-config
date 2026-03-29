@@ -35,13 +35,17 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
-
 require("luasnip.loaders.from_vscode").lazy_load()
 require("blink.cmp").setup({
-	signature = { enabled = true },
+	signature = { enabled = true, window = { border = "rounded" } },
 	completion = {
-		documentation = { auto_show = true, auto_show_delay_ms = 500 },
-		ghost_text = { enabled = false },
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 500,
+			treesitter_highlighting = true,
+			window = { border = "rounded" },
+		},
+		ghost_text = { enabled = true },
 		menu = {
 			auto_show = true,
 			draw = {
@@ -53,32 +57,60 @@ require("blink.cmp").setup({
 		list = {
 			selection = {
 				-- don't force Enter to accept the first item
-				preselect = false,
-				auto_insert = false,
+				preselect = true,
+				auto_insert = true,
 			},
 		},
-		trigger = {
-			show_on_keyword = true,
-		},
+		accept = { auto_brackets = { enabled = true } },
 	},
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
+		providers = {
+			lsp = {
+				min_keyword_length = 2, -- Number of characters to trigger porvider
+				score_offset = 0, -- Boost/penalize the score of the items
+			},
+			path = {
+				min_keyword_length = 0,
+			},
+			snippets = {
+				min_keyword_length = 2,
+			},
+			buffer = {
+				min_keyword_length = 5,
+				max_items = 5,
+			},
+		},
 	},
 	keymap = {
-		preset = "none",
-
-		["<C-k>"] = { "select_prev", "fallback" },
-		["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-
-		["<C-j>"] = { "select_next", "fallback" },
-		["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-
-		-- only accept if something is actually selected,
-		-- otherwise fallback to normal Enter/newline
+		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+		["<C-e>"] = { "hide", "fallback" },
 		["<CR>"] = { "accept", "fallback" },
 
-		-- open completion menu manually
-		["<C-Enter>"] = { "show", "fallback" },
+		["<C-k>"] = { "select_prev", "fallback" },
+		["<C-j>"] = { "select_next", "fallback" },
+
+		["<Tab>"] = {
+			function(cmp)
+				return cmp.select_next()
+			end,
+			"snippet_forward",
+			"fallback",
+		},
+		["<S-Tab>"] = {
+			function(cmp)
+				return cmp.select_prev()
+			end,
+			"snippet_backward",
+			"fallback",
+		},
+
+		["<Up>"] = { "select_prev", "fallback" },
+		["<Down>"] = { "select_next", "fallback" },
+		["<C-p>"] = { "select_prev", "fallback" },
+		["<C-n>"] = { "select_next", "fallback" },
+		["<C-up>"] = { "scroll_documentation_up", "fallback" },
+		["<C-down>"] = { "scroll_documentation_down", "fallback" },
 	},
 })
 
@@ -129,12 +161,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		opts.desc = "Show line diagnostics"
 		keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
-		opts.desc = "Previous diagnostic"
-		keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-
-		opts.desc = "Next diagnostic"
-		keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
 		opts.desc = "Hover documentation"
 		keymap.set("n", "K", vim.lsp.buf.hover, opts)
