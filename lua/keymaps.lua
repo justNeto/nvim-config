@@ -35,11 +35,11 @@ keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Remap some other stuff
-keymap.set("n", "c", "\"_c")
+keymap.set("n", "c", '"_c')
 
 -- Add centering after search
-keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
-keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
+keymap.set("n", "n", "nzz", { noremap = true, silent = true })
+keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
 -- Shortcutting split navigation, saving a keypress:
 keymap.set("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>")
@@ -47,20 +47,39 @@ keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
 keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
 keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
 
-keymap.set("n", "<leader>w","<C-w>")
-keymap.set("n", "<leader>sv","<C-w>v")
-keymap.set("n", "<leader>sh","<C-w>s")
-keymap.set("n", "<leader>se","<C-w>=")
-keymap.set("n", "<leader>sx","<cmd>close<cr>")
+keymap.set("n", "<leader>w", "<C-w>")
+keymap.set("n", "<leader>sv", "<C-w>v")
+keymap.set("n", "<leader>sh", "<C-w>s")
+keymap.set("n", "<leader>se", "<C-w>=")
+keymap.set("n", "<leader>sx", "<cmd>close<cr>")
 
 -- Dismissing noice messages
-keymap.set("n", "<leader>nd","<cmd>NoiceDismiss<cr>")
+keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<cr>")
 
 -- Copy, pasting and other
-keymap.set("x", "<leader>p", "\"_dP") -- pasting without overwriting vim clipboard
+keymap.set("x", "<leader>p", '"_dP') -- pasting without overwriting vim clipboard
 keymap.set("n", "<leader>P", [["+p"]]) -- pasting from system's clipboard
 keymap.set({ "n", "v" }, "<leader>d", [["_d]]) -- delete without sending to vim clipboard
 keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- yanking or deleting to system's clipboard
+
+keymap.set("n", "<leader>a", function()
+	require("harpoon"):list():add()
+end)
+keymap.set("n", "<C-e>", function()
+	require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+end)
+keymap.set("n", "<leader>hh", function()
+	require("harpoon"):list():select(1)
+end)
+keymap.set("n", "<leader>tt", function()
+	require("harpoon"):list():select(2)
+end)
+keymap.set("n", "<leader>nn", function()
+	require("harpoon"):list():select(3)
+end)
+keymap.set("n", "<leader>ss", function()
+	require("harpoon"):list():select(4)
+end)
 
 -- Replace ex mode with gq... but actually no lol
 keymap.set("n", "Q", "<nop>")
@@ -73,8 +92,28 @@ keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
 
 -- Spectre files
 
-keymap.set('n', '<leader>tb', '<cmd>lua require("spectre").open_file_search()<CR>', { desc =  'Search in current buffer; no word selected'})
-keymap.set('n', '<leader>scb', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search current word in current buffer" })
+keymap.set(
+	"n",
+	"<leader>tb",
+	'<cmd>lua require("spectre").open_file_search()<CR>',
+	{ desc = "Search in current buffer; no word selected" }
+)
+keymap.set(
+	"n",
+	"<leader>scb",
+	'<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+	{ desc = "Search current word in current buffer" }
+)
 
-keymap.set('n', '<leader>ts', '<cmd>lua require("spectre").toggle()<CR>', { desc = 'Search in all buffers: no word selected'})
-keymap.set('n', '<leader>scw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word in all buffer" })
+keymap.set(
+	"n",
+	"<leader>ts",
+	'<cmd>lua require("spectre").toggle()<CR>',
+	{ desc = "Search in all buffers: no word selected" }
+)
+keymap.set(
+	"n",
+	"<leader>scw",
+	'<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+	{ desc = "Search current word in all buffer" }
+)

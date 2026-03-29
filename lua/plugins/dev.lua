@@ -7,10 +7,11 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 	{ src = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring" },
-	{
-		src = "https://github.com/ThePrimeagen/harpoon",
-		version = "harpoon2",
-	},
+	-- {
+	-- 	src = "https://github.com/justNeto/harpoon",
+	-- 	version = "neto/nvim-nightly-fix"
+	-- },
+	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
@@ -18,34 +19,7 @@ vim.pack.add({
 -- require('plugin').setup({
 --     ...
 -- })
--- local harpoon = require("harpoon")
--- local keymap = vim.keymap
---
--- harpoon:setup({
--- 	settings = {
--- 		save_on_toggle = true,
--- 	},
--- })
---
--- keymap.set("n", "<leader>a", function()
--- 	harpoon:list():add()
--- end)
--- keymap.set("n", "<C-e>", function()
--- 	harpoon.ui:toggle_quick_menu(harpoon:list())
--- end)
--- keymap.set("n", "<leader>hh", function()
--- 	harpoon:list():select(1)
--- end)
--- keymap.set("n", "<leader>tt", function()
--- 	harpoon:list():select(2)
--- end)
--- keymap.set("n", "<leader>nn", function()
--- 	harpoon:list():select(3)
--- end)
--- keymap.set("n", "<leader>ss", function()
--- 	harpoon:list():select(4)
--- end)
-
+local harpoon = require("harpoon")
 require("todo-comments").setup()
 require("fzf-lua").setup({ "fzf-native" })
 
