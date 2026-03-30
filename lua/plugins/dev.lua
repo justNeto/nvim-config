@@ -22,11 +22,11 @@ vim.pack.add({
 require("todo-comments").setup()
 require("fzf-lua").setup({ "fzf-native" })
 require("harpoon").setup({
-    global_settings = {
-        save_on_toggle = true,
-        save_on_change = true,
-        tabline = true
-    }
+	settings = {
+		save_on_toggle = true,
+		save_on_change = true,
+		tabline = true,
+	},
 })
 
 local ts_context = require("ts_context_commentstring.integrations.comment_nvim")
