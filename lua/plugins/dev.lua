@@ -6,7 +6,6 @@ vim.pack.add({
 	{ src = "https://github.com/folke/todo-comments.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-	{ src = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring" },
 	-- {
 	-- 	src = "https://github.com/justNeto/harpoon",
 	-- 	version = "neto/nvim-nightly-fix"
@@ -20,18 +19,13 @@ vim.pack.add({
 --     ...
 -- })
 require("todo-comments").setup()
-require("fzf-lua").setup({ "fzf-native" })
+require("fzf-lua").setup({ "fzf-native", winopts = { split = "belowright new" } })
 require("harpoon").setup({
 	settings = {
 		save_on_toggle = true,
 		save_on_change = true,
 		tabline = true,
 	},
-})
-
-local ts_context = require("ts_context_commentstring.integrations.comment_nvim")
-require("Comment").setup({
-	pre_hook = ts_context.create_pre_hook(),
 })
 
 -- configure plugin
