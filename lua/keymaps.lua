@@ -5,16 +5,29 @@ vim.g.maplocalleader = "\\"
 
 -- Set file navigation shortcuts for fuzzy finding and tree
 keymap.set("n", "<leader>st", "<cmd>TodoFzfLua<cr>")
+keymap.set("n", "<leader>sl", "<cmd>FzfLua lines<cr>")
 keymap.set("n", "<leader>sf", "<cmd>FzfLua files<cr>")
 keymap.set("n", "<leader>sm", "<cmd>FzfLua marks<cr>")
-keymap.set("n", "<leader>sb", "<cmd>FzfLua buffers<cr>")
+keymap.set("n", "<leader>sb", "<cmd>FzfLua blines<cr>")
 keymap.set("n", "<leader>sg", "<cmd>FzfLua git_files<cr>")
 keymap.set("n", "<leader>sr", "<cmd>FzfLua registers<cr>")
 keymap.set("n", "<leader>sw", "<cmd>FzfLua grep_cword<cr>")
 keymap.set("n", "<leader><space>", "<cmd>FzfLua live_grep<cr>")
 
-keymap.set("n", "<leader>ecd", ":lua local current_dir = vim.fn.getcwd(); FzfLua.live_grep({ cwd = current_dir })<cr>")
-keymap.set("n", "<leader>ed", ":lua FzfLua.live_grep({ cwd = ''})<left><left><left>")
+keymap.set("n", "<leader>scd", function()
+	local file = vim.fn.expand("%:p")
+
+	local cwd
+	if file == "" then
+		cwd = vim.fn.getcwd()
+	else
+		cwd = vim.fn.expand("%:p:h")
+	end
+
+	require("fzf-lua").live_grep({
+		cwd = cwd,
+	})
+end)
 
 -- Todo comments
 keymap.set("n", "]t", "<cmd>lua require('todo-comments').jump_next()<cr>")
@@ -57,12 +70,6 @@ keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
 keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
 keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
 
-keymap.set("n", "<leader>w", "<C-w>")
-keymap.set("n", "<leader>sv", "<C-w>v")
-keymap.set("n", "<leader>sh", "<C-w>s")
-keymap.set("n", "<leader>se", "<C-w>=")
-keymap.set("n", "<leader>sx", "<cmd>close<cr>")
-
 -- Dismissing noice messages
 keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<cr>")
 
@@ -99,31 +106,3 @@ keymap.set("n", "Q", "<nop>")
 
 -- Set undotree keymap
 keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>")
-
--- Spectre files
-
-keymap.set(
-	"n",
-	"<leader>tb",
-	'<cmd>lua require("spectre").open_file_search()<CR>',
-	{ desc = "Search in current buffer; no word selected" }
-)
-keymap.set(
-	"n",
-	"<leader>scb",
-	'<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-	{ desc = "Search current word in current buffer" }
-)
-
-keymap.set(
-	"n",
-	"<leader>ts",
-	'<cmd>lua require("spectre").toggle()<CR>',
-	{ desc = "Search in all buffers: no word selected" }
-)
-keymap.set(
-	"n",
-	"<leader>scw",
-	'<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-	{ desc = "Search current word in all buffer" }
-)
