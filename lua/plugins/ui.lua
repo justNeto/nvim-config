@@ -6,6 +6,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 	{ src = "https://github.com/rcarriga/nvim-notify" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/kylechui/nvim-surround" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
@@ -13,13 +14,14 @@ vim.pack.add({
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 })
 
--- TODO: resarch mini.nvim such as sorround and align
+-- TODO: research mini.nvim such as sorround and align
 -- Add whatever specific config/setup for some plugin e.g.
 -- require('plugin').setup({})
 
 require("colorizer").setup()
 require("render-markdown").setup()
 require("nvim-surround").setup()
+require("quicker").setup()
 
 require("noice").setup({
 	cmdline = {
@@ -29,12 +31,6 @@ require("noice").setup({
 			cmdline = {
 				icon = "",
 			},
-			-- search_up = {
-			--     icon = "󰞙"
-			-- },
-			-- search_down = {
-			--     icon = "󰞖"
-			-- },
 		},
 	},
 	lsp = {
@@ -45,29 +41,32 @@ require("noice").setup({
 			["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 		},
 	},
-	-- you can enable a preset for easier configuration
-	-- presets = {
-	--     bottom_search = true,         -- use a classic bottom cmdline for search
-	--     command_palette = true,       -- position the cmdline and popupmenu together
-	--     long_message_to_split = true, -- long messages will be sent to a split
-	--     inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-	--     lsp_doc_border = false,       -- add a border to hover docs and signature help
-	-- },
 })
 
-require("quicker").setup()
+require("gitsigns").setup({
+	signs = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+		untracked = { text = "┆" },
+	},
+	signs_staged = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+		untracked = { text = "┆" },
+	},
+	signs_staged_enable = true,
+})
 
 require("oil").setup({
-	-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-	-- Set to false if you still want to use netrw.
 	default_file_explorer = true,
-	-- Id is automatically added at the beginning, and name at the end
-	-- See :help oil-columns
 	columns = {
 		"icon",
-		-- "permissions",
-		-- "size",
-		-- "mtime",
 	},
 	-- Buffer-local options to use for oil buffers
 	buf_options = {
@@ -95,18 +94,9 @@ require("oil").setup({
 	-- You can set the delay to false to disable cleanup entirely
 	-- Note that the cleanup process only starts when none of the oil buffers are currently displayed
 	cleanup_delay_ms = 2000,
-	-- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
-	-- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
-	-- Additionally, if it is a string that matches "actions.<name>",
-	-- it will use the mapping at require("oil.actions").<name>
-	-- Set to `false` to remove a keymap
-	-- See :help oil-actions for a list of all available actions
 	keymaps = {
 		["g?"] = "actions.show_help",
 		["<CR>"] = "actions.select",
-		-- ["<C-s>"] = "actions.select_vsplit",
-		-- ["<C-h>"] = "actions.select_split",
-		-- ["<C-t>"] = "actions.select_tab",
 		["<C-p>"] = "actions.preview",
 		["<C-c>"] = "actions.close",
 		["<C-l>"] = "actions.refresh",
@@ -118,26 +108,6 @@ require("oil").setup({
 		["gx"] = "actions.open_external",
 		["g."] = "actions.toggle_hidden",
 		["g\\"] = "actions.toggle_trash",
-	},
-	-- Set to false to disable all of the above keymaps
-	use_default_keymaps = false,
-	view_options = {
-		-- Show files and directories that start with "."
-		show_hidden = true,
-		-- This function defines what is considered a "hidden" file
-		is_hidden_file = function(name, bufnr)
-			return vim.startswith(name, ".")
-		end,
-		-- This function defines what will never be shown, even when `show_hidden` is set
-		is_always_hidden = function(name, bufnr)
-			return false
-		end,
-		sort = {
-			-- sort order can be "asc" or "desc"
-			-- see :help oil-columns to see which columns are sortable
-			{ "type", "asc" },
-			{ "name", "asc" },
-		},
 	},
 })
 

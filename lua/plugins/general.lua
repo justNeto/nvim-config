@@ -11,18 +11,12 @@ vim.pack.add({
 	-- Colorschemes section
 	{ src = "https://github.com/fcpg/vim-fahrenheit" },
 	{ src = "https://github.com/rose-pine/neovim" },
-	-- { src = "https://github.com/" },
 })
 
--- TODO: resarch mini.nvim such as sorround and align
-
--- Add whatever specific config/setup for some plugin e.g.
--- require('plugin').setup({})
-
--- Other plugins
 -- vigoux/oak
 -- rose-pine/neovim
 -- vim.cmd("colorscheme rose-pine")
 vim.cmd("colorscheme fahrenheit")
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#36180E" })
 require("ibl").setup() -- indent blanklike startup callout
 require("treesj").setup() -- indent blanklike startup callout

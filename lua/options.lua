@@ -30,7 +30,7 @@ vim.opt.fillchars:append({ fold = " " })
 -- Search settings
 opt.ignorecase = true
 opt.smartcase = true
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 
 -- Color settings
@@ -52,9 +52,9 @@ vim.o.wildignorecase = true
 -- LSP defaults
 vim.diagnostic.config({ virtual_text = true })
 
--- TODO: disable netrw by default
--- vim.g.loaded_netrw       = 1
--- vim.g.loaded_netrwPlugin = 1
+-- Disable NETRW by default
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Some automatic indentation for specific filetypes
 vim.cmd([[
@@ -69,10 +69,10 @@ vim.cmd([[
 
 -- Setting more filetypes
 vim.cmd([[autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff]])
-vim.cmd([[autocmd BufRead,BufNewFile *.rmd,*.qmd set filetype=markdown | set conceallevel=2]])
+vim.cmd([[autocmd BufRead,BufNewFile *.rmd,*.qmd,*.Rmd,*.Qmd set conceallevel=2]])
 vim.cmd([[autocmd BufRead,BufNewFile *.launch set filetype=xml]])
 vim.cmd([[autocmd BufRead,BufNewFile *.tex set filetype=tex]])
-vim.cmd([[autocmd BufRead,BufNewFile *.md,*.rmd,*.qmd,*.Rmd,*.Qmd set conceallevel=2]])
+vim.cmd([[autocmd BufRead,BufNewFile *.md set set conceallevel=0]])
 vim.cmd([[autocmd BufRead,BufNewFile *.json* set conceallevel=0]])
 
 -- Automatically deletes all trailing whitespace and newlines at end of file on save.

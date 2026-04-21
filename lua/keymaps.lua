@@ -70,6 +70,11 @@ keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
 keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
 keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
 
+-- Split pannels inside nvim again
+keymap.set("n", "<leader>sv", "<cmd>split<cr>")
+keymap.set("n", "<leader>sh", "<cmd>vsplit<cr>")
+keymap.set("n", "<leader>x", "<cmd>close<cr>")
+
 -- Dismissing noice messages
 keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<cr>")
 

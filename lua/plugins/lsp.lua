@@ -240,11 +240,9 @@ require("blink.cmp").setup({
 	keymap = {
 		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 		["<C-e>"] = { "hide", "fallback" },
-		["<CR>"] = { "accept", "fallback" },
-
+		["<C-y>"] = { "accept", "fallback" },
 		["<C-k>"] = { "select_prev", "fallback" },
 		["<C-j>"] = { "select_next", "fallback" },
-
 		["<Tab>"] = {
 			function(cmp)
 				return cmp.select_next()
@@ -266,6 +264,11 @@ require("blink.cmp").setup({
 		["<C-n>"] = { "select_next", "fallback" },
 		["<C-up>"] = { "scroll_documentation_up", "fallback" },
 		["<C-down>"] = { "scroll_documentation_down", "fallback" },
+	},
+	cmdline = {
+		enabled = true,
+		keymap = { preset = "inherit" },
+		completion = { menu = { auto_show = true } },
 	},
 })
 
