@@ -9,7 +9,9 @@ vim.pack.add({
 	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
 })
 
-local lsp_langs = { "lua_ls", "ts_ls", "stylua", "clangd", "eslint_d", "isort", "gopls", "haskell-language-server" }
+local lsp_langs =
+	{ "lua_ls", "ts_ls", "stylua", "clangd", "eslint_d", "isort", "gopls", "haskell-language-server", "dcm" }
+
 local treesitter_langs = {
 	"zsh",
 	"rust",
@@ -26,6 +28,7 @@ local treesitter_langs = {
 	"json",
 	"python",
 	"haskell",
+	"dart",
 }
 
 -- for _, value in ipairs(lsp_langs) do

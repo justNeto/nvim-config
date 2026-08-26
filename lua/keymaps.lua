@@ -45,6 +45,15 @@ vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 	})
 end)
 vim.keymap.set({ "n", "v" }, "<leader>cm", "<cmd>lua vim.lsp.buf.format()<cr>")
+keymap.set("n", "<leader>cd", function()
+	if vim.b.disable_autoformat then
+		vim.cmd("FormatEnable")
+		vim.notify("Autoformat-on-save enabled for this buffer")
+	else
+		vim.cmd("FormatDisable!")
+		vim.notify("Autoformat-on-save disabled for this buffer")
+	end
+end, { desc = "Toggle autoformat-on-save for current buffer" })
 
 -- Appending to current line the next line
 keymap.set("n", "J", "mzJ`z")
