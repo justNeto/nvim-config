@@ -23,7 +23,6 @@ local treesitter_langs = {
 	"lua",
 	"typescript",
 	"svelte",
-	"tmux",
 	"typst",
 	"json",
 	"python",

@@ -122,7 +122,6 @@ require("nvim-treesitter").install({
 	"lua",
 	"typescript",
 	"svelte",
-	"tmux",
 	"typst",
 	"json",
 })

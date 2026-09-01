@@ -9,14 +9,18 @@ vim.pack.add({
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 
 	-- Colorschemes section
-	{ src = "https://github.com/fcpg/vim-fahrenheit" },
 	{ src = "https://github.com/rose-pine/neovim" },
+	{ src = "https://github.com/jakiurcore/fleury.nvim" },
+	{ src = "https://github.com/fcpg/vim-fahrenheit" },
 })
 
 -- vigoux/oak
 -- rose-pine/neovim
+
 -- vim.cmd("colorscheme rose-pine")
-vim.cmd("colorscheme fahrenheit")
+-- vim.cmd("colorscheme fahrenheit")
+vim.cmd("colorscheme fleury")
+
 vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#36180E" })
 require("ibl").setup() -- indent blanklike startup callout
 require("treesj").setup() -- indent blanklike startup callout
